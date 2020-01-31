@@ -796,7 +796,8 @@ body {
 
 .tag-item:hover {
   color: var(--color-bg-bright);
-  background-color: var(--color-sub-base);
+  /* background-color: var(--color-sub-base); */
+  background-color: var(--color-apple-yellow);
   transition: all 0.4s ease-out;
 }
 
