@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-london-after-midnight",
+  "name": "its-obinna-site",
   "private": true,
-  "description": "A custom, image-centric theme for Gatsby",
+  "description": "A custom, blog-site-store for Obinna built with React",
   "version": "1.0.2",
-  "author": "Vaporwavy <i@ttv8.me> (https://vaporwavy.io)",
+  "author": "Its Obinna <obiknows88@gmail.com> (https://itsobinna.com)",
   "bugs": {
-    "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
+    "url": "https://github.com/obiknows/its-obinna/issues"
   },
   "dependencies": {
     "gatsby": "^2.4.2",
@@ -46,7 +46,7 @@
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/obiknows/its-obinna#readme",
   "keywords": [
     "gatsby",
     "ghost",
@@ -58,7 +58,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vaporwavy/gatsby-london-after-midnight.git"
+    "url": "git+https://github.com/obiknows/its-obinna.git"
   },
   "scripts": {
     "build": "gatsby build",
