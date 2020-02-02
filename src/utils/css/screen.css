@@ -137,7 +137,8 @@ body {
 .site-head {
   position: relative;
   z-index: 300;
-  margin-top: -10px;
+  /* margin-top: -10px; */
+  margin-top: 2.2rem;
   font-size: 1.35rem;
 }
 
@@ -155,6 +156,14 @@ body {
   margin-right: 10px;
   white-space: nowrap;
 }
+.site-head-middle {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  /* margin-right: 10px; */
+  white-space: nowrap;
+}
 
 .nav {
   display: flex;
@@ -170,6 +179,7 @@ body {
 }
 
 .site-head-left a,
+.site-head-middle a,
 .site-head-right a {
   display: block;
   margin: 0;
@@ -188,8 +198,11 @@ body {
 .site-head-center {
   position: absolute;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 100%;
+  /* margin-top: 3.3rem; */
 }
 
 .site-head-logo {
@@ -272,6 +285,7 @@ body {
 
 @media (max-width: 850px) {
   .site-head {
+    margin-top: 0rem;
     padding: 0;
   }
   .nav-burger {
@@ -287,6 +301,7 @@ body {
     overflow: hidden;
   }
   .site-head-left,
+  .site-head-middle,
   .site-head-right {
     position: relative;
     z-index: -1;
@@ -295,6 +310,7 @@ body {
     transition-delay: 1s;
   }
   .site-head-left a,
+  .site-head-middle a,
   .site-head-right a {
     margin: 8px 0;
     padding: 1px 0;
@@ -318,7 +334,7 @@ body {
     align-items: flex-start;
     margin: 3vw 0 0 0;
   }
-  .site-head-left {
+  .site-head-left, .site-head-middle {
     order: 2;
     margin: 0;
     width: 100%;
@@ -328,6 +344,8 @@ body {
     position: static;
     z-index: auto;
     display: flex;
+    /* flex-direction: column; */
+    /* align-items: center; */
     justify-content: center;
   }
   .site-head-right {
@@ -355,6 +373,7 @@ body {
   }
 
   .site-head-open .site-head-left,
+  .site-head-open .site-head-middle,
   .site-head-open .site-head-right {
     z-index: 9999;
     height: auto;
@@ -362,6 +381,7 @@ body {
   }
 
   .site-head-open .site-head-left a,
+  .site-head-open .site-head-middle a,
   .site-head-open .site-head-right a {
     opacity: 1;
     transition: transform 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99),
