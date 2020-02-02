@@ -42,11 +42,23 @@ const Layout = props => {
             </ul>
           </nav> */}
           <div className="site-head-center">
-            <div style={{display: `flex`, flexDirection: `row`, alignItems: `center`}}>
+            <div
+              style={{
+                display: `flex`,
+                flexDirection: `row`,
+                alignItems: `center`,
+              }}
+            >
               <Link className="site-head-logo" to={`/blog`}>
                 {title}
               </Link>
-              <div style={{backgroundColor: `#E4B123`, color: `black`, padding: 5}}>
+              <div
+                style={{
+                  backgroundColor: `#E4B123`,
+                  color: `black`,
+                  padding: 5,
+                }}
+              >
                 <b>BLOG</b>
               </div>
             </div>
@@ -59,16 +71,19 @@ const Layout = props => {
                   <Link to={`/blog/wealth`}>Wealth</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/health`}>Health</Link>
+                  <Link to={`/blog/tech`}>Tech</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/tech`}>Tech</Link>
+                  <Link to={`/blog/health`}>Health</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
                   <Link to={`/blog/more`}>More</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                {/* <li className="nav-tags" role="menuitem">
                   <Link to={`/blog/about`}>About</Link>
+                </li> */}
+                <li className="nav-tags" role="menuitem">
+                  <Link to={`/`}>Back to Main Site</Link>
                 </li>
               </ul>
             </nav>
@@ -117,7 +132,53 @@ const Layout = props => {
           {children}
         </div>
       </main>
-      <footer className="site-foot">
+      {/* FOOTER */}
+      <footer>
+        <div className="footer-container">
+          <br />
+          <br />
+          <div className="collabo" style={{ lineHeight: `4rem` }}>
+            <p>Got an interesting project? Let's link up.</p>
+          </div>
+          <br />
+          <div className="hr" />
+          <br />
+          <br />
+          <div className="info">
+            <div className="connect">
+              <p>connect with me</p>
+              <h4>ig @itsobinna</h4>
+            </div>
+            <div className="check">
+              <p>check the socials</p>
+              <ul className="social">
+                <li className="instagram">ig</li>
+                <li className="youtube">yt</li>
+                <li className="github">gh</li>
+                <li className="pinterest">pin</li>
+              </ul>
+            </div>
+            <div className="say-hello">
+              <p>say hello</p>
+              <h4>obiknows88@gmail.com</h4>
+            </div>
+          </div>
+          <br />
+          <div className="site-foot">
+            &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>{" "}
+            &mdash; Built by{" "}
+            <a
+              href="https://instagram.com/itsobinna"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Obinna
+            </a>
+          </div>
+        </div>
+      </footer>
+      {/* FOOTER - END */}
+      {/* <footer className="site-foot">
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
         Built by{" "}
         <a
@@ -127,7 +188,7 @@ const Layout = props => {
         >
           Obinna
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }

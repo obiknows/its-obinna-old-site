@@ -1,9 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import itsObinna from "../images/its-obinna-hex.png"
-import "../utils/css/screen.css"
-
 const Layout = props => {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
@@ -48,37 +45,83 @@ const Layout = props => {
             <div
               style={{
                 display: `flex`,
-                flexDirection: `column`,
+                flexDirection: `row`,
                 alignItems: `center`,
               }}
             >
-              <Link to={`/`}>
-                <img src={itsObinna} style={{ width: `8.8rem` }} />
-              </Link>
               <Link className="site-head-logo" to={`/`}>
                 {title}
               </Link>
-              {/* <div style={{backgroundColor: `gold`, color: `black`, padding: 5}}>
-                <b>BLOG</b>
-              </div> */}
+              <div
+                style={{
+                  backgroundColor: `#219653`,
+                  color: `white`,
+                  padding: 5,
+                }}
+              >
+                <b>SERVICES</b>
+              </div>
             </div>
             <nav id="swup" class="site-head-middle">
               <ul className="nav" role="menu">
                 <li className="" role="menuitem">
-                  <Link to={`/work`}>Work</Link>
+                  <Link to={`/services/beats`}>Beats</Link>
+                </li>
+                <li className="nav-elements" role="menuitem">
+                  <Link to={`/services/wealth`}>Wealth</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/services`}>Services</Link>
+                  <Link to={`/services/health`}>Health</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/store`}>Store</Link>
+                  <Link to={`/services/tech`}>Tech</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog`}>Blog</Link>
+                  <Link to={`/services/more`}>More</Link>
                 </li>
+                {/* <li className="nav-tags" role="menuitem">
+                  <Link to={`/`}>Back To The Site</Link>
+                </li> */}
               </ul>
             </nav>
           </div>
+          {/* OLD SITE RIGHT NAV */}
+          {/* <div className="site-head-right">
+            <div className="social-links">
+              <a
+                href="https://www.facebook.com"
+                title="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://twitter.com"
+                title="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+              <Link
+                to={`/rss.xml`}
+                title="RSS"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                RSS
+              </Link>
+              <a
+                href="https://github.com/vaporwavy/gatsby-london-after-midnight"
+                title="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </div>
+          </div> */}
         </div>
       </header>
       <main id="site-main" className="site-main">

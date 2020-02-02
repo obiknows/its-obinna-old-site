@@ -42,34 +42,46 @@ const Layout = props => {
             </ul>
           </nav> */}
           <div className="site-head-center">
-            <div style={{display: `flex`, flexDirection: `row`, alignItems: `center`}}>
-              <Link className="site-head-logo" to={`/blog`}>
+            <div
+              style={{
+                display: `flex`,
+                flexDirection: `row`,
+                alignItems: `center`,
+              }}
+            >
+              <Link className="site-head-logo" to={`/`}>
                 {title}
               </Link>
-              <div style={{backgroundColor: `#E4B123`, color: `black`, padding: 5}}>
-                <b>BLOG</b>
+              <div
+                style={{
+                  backgroundColor: `#333333`,
+                  color: `white`,
+                  padding: 5,
+                }}
+              >
+                <b>WORK</b>
               </div>
             </div>
             <nav id="swup" class="site-head-middle">
               <ul className="nav" role="menu">
                 <li className="" role="menuitem">
-                  <Link to={`/blog/beats`}>Beats</Link>
+                  <Link to={`/work/beats`}>Beats</Link>
                 </li>
                 <li className="nav-elements" role="menuitem">
-                  <Link to={`/blog/wealth`}>Wealth</Link>
+                  <Link to={`/work/wealth`}>Wealth</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/health`}>Health</Link>
+                  <Link to={`/work/health`}>Health</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/tech`}>Tech</Link>
+                  <Link to={`/work/tech`}>Tech</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/more`}>More</Link>
+                  <Link to={`/work/more`}>More</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
-                  <Link to={`/blog/about`}>About</Link>
-                </li>
+                {/* <li className="nav-tags" role="menuitem">
+                  <Link to={`/work/about`}>About</Link>
+                </li> */}
               </ul>
             </nav>
           </div>
@@ -117,7 +129,53 @@ const Layout = props => {
           {children}
         </div>
       </main>
-      <footer className="site-foot">
+      {/* FOOTER */}
+      <footer>
+        <div className="footer-container">
+          <br />
+          <br />
+          <div className="collabo" style={{ lineHeight: `4rem` }}>
+            <p>Got an interesting project? Let's link up.</p>
+          </div>
+          <br />
+          <div className="hr" />
+          <br />
+          <br />
+          <div className="info">
+            <div className="connect">
+              <p>connect with me</p>
+              <h4>ig @itsobinna</h4>
+            </div>
+            <div className="check">
+              <p>check the socials</p>
+              <ul className="social">
+                <li className="instagram">ig</li>
+                <li className="youtube">yt</li>
+                <li className="github">gh</li>
+                <li className="pinterest">pin</li>
+              </ul>
+            </div>
+            <div className="say-hello">
+              <p>say hello</p>
+              <h4>obiknows88@gmail.com</h4>
+            </div>
+          </div>
+          <br />
+          <div className="site-foot">
+            &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>{" "}
+            &mdash; Built by{" "}
+            <a
+              href="https://instagram.com/itsobinna"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Obinna
+            </a>
+          </div>
+        </div>
+      </footer>
+      {/* FOOTER - END */}
+      {/* <footer className="site-foot">
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
         Built by{" "}
         <a
@@ -127,7 +185,7 @@ const Layout = props => {
         >
           Obinna
         </a>
-      </footer>
+      </footer> */}
     </div>
   )
 }
