@@ -10,9 +10,11 @@ module.exports = {
     siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
     social: {
       twitter: siteConfig.twitter,
+      instagram: siteConfig.instagram,
     },
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
