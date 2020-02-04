@@ -45,23 +45,27 @@ const Layout = props => {
             </ul>
           </nav> */}
           <div className="site-head-center">
-            <div
+            {/* <div
               style={{
                 display: `flex`,
                 flexDirection: `column`,
                 alignItems: `center`,
               }}
-            >
-              <Link to={`/`}>
-                <img src={itsObinna} style={{ width: `8.8rem` }} />
-              </Link>
-              <Link className="site-head-logo" to={`/`}>
+            > */}
+            <Link to={`/`}>
+              <img
+                className="its-obinna-logo"
+                src={itsObinna}
+                style={{ width: `8.8rem` }}
+              />
+            </Link>
+            {/* <Link className="site-head-logo" to={`/`}>
                 {title}
-              </Link>
-              {/* <div style={{backgroundColor: `gold`, color: `black`, padding: 5}}>
+              </Link> */}
+            {/* <div style={{backgroundColor: `gold`, color: `black`, padding: 5}}>
                 <b>BLOG</b>
               </div> */}
-            </div>
+            {/* </div> */}
             <nav id="swup" class="site-head-middle">
               <ul className="nav" role="menu">
                 <li className="" role="menuitem">

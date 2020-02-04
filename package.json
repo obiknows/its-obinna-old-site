@@ -39,6 +39,7 @@
     "typeface-montserrat": "0.0.54",
     "typeface-nunito": "^0.0.72",
     "typeface-roboto-mono": "0.0.75",
+    "typewriter-effect": "^2.12.2",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
