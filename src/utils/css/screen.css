@@ -380,6 +380,10 @@ footer h4 {
 }
 
 @media (max-width: 850px) {
+  .its-obinna-logo {
+    width: 6.8rem !important;
+  }
+
   .site-head {
     margin-top: 0rem;
     padding: 0;
