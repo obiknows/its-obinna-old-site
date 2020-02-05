@@ -6,7 +6,7 @@
 </p>
 
 <h1 align="center">
-  London After Midnight
+  ITS OBINNA
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vaporwavy/gatsby-london-after-midnight)
 
@@ -23,12 +23,13 @@ A custom, image-centric theme for Gatsby. Made for publishers and portfolios wit
 ---
 
 ### What is different from London?
-* Support Tag
-* Full Recoloring for Dark themes
-* Highlight Syntax with Prism.js
-* Support Korean and Japanese
-* Parameterize All Colors
-* Change the Format of Thumbnailless Postcards
+
+- Support Tag
+- Full Recoloring for Dark themes
+- Highlight Syntax with Prism.js
+- Support Korean and Japanese
+- Parameterize All Colors
+- Change the Format of Thumbnailless Postcards
 
 ---
 
