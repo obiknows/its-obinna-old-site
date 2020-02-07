@@ -24,6 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                type
               }
             }
           }
@@ -53,6 +54,8 @@ exports.createPages = ({ graphql, actions }) => {
 
       // create a store post
       if (item.node.frontmatter.type == "product") {
+        console.log("created the product:", item.node.frontmatter.title)
+
         createPage({
           path: item.node.fields.slug,
           component: storeItem,
@@ -62,6 +65,8 @@ exports.createPages = ({ graphql, actions }) => {
             next,
           },
         })
+
+        console.log("Created a store page")
       } else {
         // create a blog post
         createPage({
@@ -101,7 +106,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (node.frontmatter.type == "product") {
       const value = `/store` + createFilePath({ node, getNode })
 
-      console.log("slug value:", value)
+      console.log("store slug value:", value)
 
       createNodeField({
         name: `slug`,
@@ -111,7 +116,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     } else {
       const value = `/blog` + createFilePath({ node, getNode })
 
-      console.log("slug value:", value)
+      console.log("blog slug value:", value)
 
       createNodeField({
         name: `slug`,
