@@ -19,7 +19,17 @@ const BlogIndex = ({ data }, location) => {
     <Layout title={siteTitle}>
       <SEO
         title="Blog"
-        keywords={[`blog`, `beats`, `store`, `wealth`, `health`, `code`, `tech`, `advice`, `info`]}
+        keywords={[
+          `blog`,
+          `beats`,
+          `store`,
+          `wealth`,
+          `health`,
+          `code`,
+          `tech`,
+          `advice`,
+          `info`,
+        ]}
       />
       {/* <Bio /> */}
       {data.site.siteMetadata.description && (
@@ -32,14 +42,16 @@ const BlogIndex = ({ data }, location) => {
       <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
-          return (
-            <PostCard
-              key={node.fields.slug}
-              count={postCounter}
-              node={node}
-              postClass={`post`}
-            />
-          )
+          if (node.frontmatter.type !== "product") {
+            return (
+              <PostCard
+                key={node.fields.slug}
+                count={postCounter}
+                node={node}
+                postClass={`post`}
+              />
+            )
+          }
         })}
       </div>
     </Layout>
@@ -62,6 +74,7 @@ const indexQuery = graphql`
             slug
           }
           frontmatter {
+            type
             date(formatString: "MMMM D, YYYY")
             title
             description
