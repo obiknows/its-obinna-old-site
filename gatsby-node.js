@@ -5,7 +5,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // const storeItem = path.resolve(`./src/templates/store-item.js`)
+  const storeItem = path.resolve(`./src/templates/store-item.js`)
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagPage = path.resolve(`./src/templates/tag-page.js`)
 
@@ -36,29 +36,44 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges
+    // Create store item pages.
+    const items = result.data.allMarkdownRemark.edges
     const tagSet = new Set()
 
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+    items.forEach((item, index) => {
+      const previous = index === items.length - 1 ? null : items[index + 1].node
+      const next = index === 0 ? null : items[index - 1].node
 
       // Get tags for tags pages.
-      if (post.node.frontmatter.tags) {
-        post.node.frontmatter.tags.forEach(tag => {
+      if (item.node.frontmatter.tags && !item.node.frontmatter.type) {
+        item.node.frontmatter.tags.forEach(tag => {
           tagSet.add(tag)
         })
       }
 
-      createPage({
-        path: post.node.fields.slug,
-        component: blogPost,
-        context: {
-          slug: post.node.fields.slug,
-          previous,
-          next,
-        },
-      })
+      // create a store post
+      if (item.node.frontmatter.type == "product") {
+        createPage({
+          path: item.node.fields.slug,
+          component: storeItem,
+          context: {
+            slug: item.node.fields.slug,
+            previous,
+            next,
+          },
+        })
+      } else {
+        // create a blog post
+        createPage({
+          path: item.node.fields.slug,
+          component: blogPost,
+          context: {
+            slug: item.node.fields.slug,
+            previous,
+            next,
+          },
+        })
+      }
     })
 
     // Create tags pages.
@@ -80,12 +95,29 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = `/blog` + createFilePath({ node, getNode })
+    // if its a product, create a store page
+    // if not, create a blog page
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    if (node.frontmatter.type == "product") {
+      const value = `/store` + createFilePath({ node, getNode })
+
+      console.log("slug value:", value)
+
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    } else {
+      const value = `/blog` + createFilePath({ node, getNode })
+
+      console.log("slug value:", value)
+
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    }
   }
 }

@@ -13,7 +13,6 @@ import flower from "../images/flower.jpg"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
 
-//TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
 const SiteIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
@@ -42,12 +41,11 @@ const SiteIndex = ({ data }, location) => {
           {/* HEADER TYPE WRITER */}
           <Typewriter
             options={{
-              // autoStart: true,
               loop: true,
             }}
             onInit={typewriter => {
               typewriter
-                .typeString(`Kedu. My name is Obinna.`)
+                .typeString(`My name's Obinna.`)
                 .pauseFor(500)
                 .deleteAll()
 
@@ -55,9 +53,9 @@ const SiteIndex = ({ data }, location) => {
                 .pauseFor(500)
                 .deleteAll()
 
-                .typeString(`I mess with herbs.`)
-                .pauseFor(750)
-                .deleteAll()
+                // .typeString(`I mess with herbs.`)
+                // .pauseFor(750)
+                // .deleteAll()
 
                 .typeString(`I build apps.`)
                 .pauseFor(750)
@@ -67,25 +65,25 @@ const SiteIndex = ({ data }, location) => {
                 .pauseFor(750)
                 .deleteAll()
 
-                .typeString(`I study tradition.`)
-                .pauseFor(750)
-                .deleteAll()
+                // .typeString(`I study tradition.`)
+                // .pauseFor(750)
+                // .deleteAll()
 
                 .typeString(`I practice wealth.`)
                 .pauseFor(750)
                 .deleteAll()
 
-                .typeString(`I am here on a mission`)
+                .typeString(`I'm here on a mission to bring change.`)
                 .pauseFor(500)
                 .deleteAll()
 
-                .typeString(`I am here to bring change.`)
-                .pauseFor(500)
-                .deleteAll()
+                // .typeString(`I am here to bring change.`)
+                // .pauseFor(500)
+                // .deleteAll()
 
-                .typeString(`ISE`)
-                .pauseFor(500)
-                .deleteAll()
+                // .typeString(`ISE`)
+                // .pauseFor(500)
+                // .deleteAll()
 
                 .start()
             }}
@@ -111,7 +109,11 @@ const SiteIndex = ({ data }, location) => {
               justifyContent: `flex-end`,
             }}
           >
-            <img src={flower} style={{ width: `40%`, marginRight: 0 }} />
+            <img
+              src={flower}
+              style={{ width: `40%`, marginRight: 0 }}
+              alt=" "
+            />
             <h3
               style={{
                 position: `absolute`,
@@ -134,7 +136,7 @@ const SiteIndex = ({ data }, location) => {
               flex: `flex-start`,
             }}
           >
-            <img src={flower} style={{ width: `40%` }} />
+            <img src={flower} style={{ width: `40%` }} alt=" " />
             <h3
               style={{
                 position: `absolute`,
@@ -193,7 +195,7 @@ const SiteIndex = ({ data }, location) => {
               flex: `flex-start`,
             }}
           >
-            <img src={flower} style={{ width: `40%` }} />
+            <img src={flower} style={{ width: `40%` }} alt=" " />
             <h3
               style={{
                 position: `absolute`,
@@ -216,7 +218,11 @@ const SiteIndex = ({ data }, location) => {
               justifyContent: `flex-end`,
             }}
           >
-            <img src={flower} style={{ width: `40%`, marginRight: 0 }} />
+            <img
+              src={flower}
+              style={{ width: `40%`, marginRight: 0 }}
+              alt=" "
+            />
             <h3
               style={{
                 position: `absolute`,
@@ -352,7 +358,8 @@ const indexQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      limit: 3
+      filter: { frontmatter: { type: { eq: null } } }
+      limit: 4
     ) {
       edges {
         node {

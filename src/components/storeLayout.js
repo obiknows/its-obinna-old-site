@@ -8,7 +8,7 @@ const Layout = props => {
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
         <div className="site-head-container">
-          <a
+          <button
             className="nav-burger"
             href={`#`}
             onClick={() => setToggleNav(!toggleNav)}
@@ -23,7 +23,7 @@ const Layout = props => {
                 <div className="hamburger-inner" />
               </div>
             </div>
-          </a>
+          </button>
           {/* OLD SITE LEFT NAV */}
           {/* <nav id="swup" class="site-head-left">
             <ul className="nav" role="menu">
