@@ -4,10 +4,6 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { graphql, StaticQuery } from "gatsby"
 
-import soulTee from "../images/our-soul-tee.png"
-import ankaraHoodie from "../images/soul-ankara.png"
-import goldSoul from "../images/gold-soul.png"
-
 import Layout from "../components/storeLayout"
 import SEO from "../components/seo"
 
@@ -18,188 +14,66 @@ const StorePage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
   const items = data.allMarkdownRemark.edges
 
-  // items.forEach(element => console.log(element))
+  let ItemsList = items.map(item => {
+    return (
+      <Link
+        to={item.node.fields.slug}
+        style={{
+          width: `100%`,
+          height: `fit-content`,
+          textAlign: "center",
+          textDecoration: `none`,
+          color: "white",
+        }}
+      >
+        <Img fluid={item.node.frontmatter.thumbnail.childImageSharp.fluid} />
+        <div>
+          <h5
+            style={{
+              marginTop: `1rem`,
+              marginBottom: `0rem`,
+              textTransform: `uppercase`,
+            }}
+          >
+            {item.node.frontmatter.title}
+          </h5>
+          <p
+            style={{
+              marginTop: `0rem`,
+              marginBottom: `1rem`,
+              textTransform: `uppercase`,
+              letterSpacing: 2,
+              fontSize: 12,
+              lineHeight: `initial`,
+            }}
+          >
+            {item.node.frontmatter.subtitle}
+          </p>
+          <div
+            style={{
+              marginTop: `0.5rem`,
+              fontWeight: "700",
+              backgroundColor: `gold`,
+              color: `black`,
+              width: `max-content`,
+              marginLeft: `auto`,
+              marginRight: `auto`,
+              paddingLeft: `0.5rem`,
+              paddingRight: `0.5rem`,
+            }}
+          >
+            ${item.node.frontmatter.price}
+          </div>
+        </div>
+      </Link>
+    )
+  })
 
   return (
     <Layout title={siteTitle}>
       <SEO title="Store" />
 
-      <StoreContainer>
-        {/* {items.forEach(item  => {
-          // the link
-          console.log(item.node.fields.slug)
-
-          // the title, subtitle, price, images
-          console.log(item.node.frontmatter.title)
-          console.log(item.node.frontmatter.subtitle)
-          console.log(item.node.frontmatter.price)
-          let itemThumbnail = item.node.frontmatter.thumbnail.childImageSharp.fluid
-          
-          return (
-            <Link to={item.node.fields.slug} style={{ width: `100%`, height: `fit-content`, textAlign: 'center', textDecoration: `none`, color: 'white' }}>
-              <Img fluid={itemThumbnail} />
-              <div>
-                <h5 style={{marginTop: `1rem`, marginBottom: `0rem`, textTransform: `uppercase`}}>{item.node.frontmatter.title}</h5>
-                <p style={{marginTop: `0rem`, marginBottom: `1rem`, textTransform: `uppercase`, letterSpacing: 2, fontSize: 12, lineHeight: `initial`}}>{item.node.frontmatter.subtitle}</p>
-                <div style={{marginTop: `0.5rem`, fontWeight: '700', backgroundColor: `gold`, color: `black`, width: `max-content`, marginLeft: `auto`, marginRight: `auto`, paddingLeft: `0.5rem`,  paddingRight: `0.5rem`,}}>${item.node.frontmatter.price}</div>
-              </div>
-            </Link>
-          )
-        })} */}
-
-        <Link
-          to="/store/soul-tee"
-          style={{
-            width: `100%`,
-            height: `fit-content`,
-            textAlign: "center",
-            textDecoration: `none`,
-            color: "white",
-          }}
-        >
-          <img src={soulTee} />
-          <div>
-            <h5
-              style={{
-                marginTop: `1rem`,
-                marginBottom: `0rem`,
-                textTransform: `uppercase`,
-              }}
-            >
-              Soul Globe
-            </h5>
-            <p
-              style={{
-                marginTop: `0rem`,
-                marginBottom: `1rem`,
-                textTransform: `uppercase`,
-                letterSpacing: 2,
-                fontSize: 12,
-                lineHeight: `initial`,
-              }}
-            >
-              Tee
-            </p>
-            <div
-              style={{
-                marginTop: `0.5rem`,
-                fontWeight: "700",
-                backgroundColor: `gold`,
-                color: `black`,
-                width: `max-content`,
-                marginLeft: `auto`,
-                marginRight: `auto`,
-                paddingLeft: `0.5rem`,
-                paddingRight: `0.5rem`,
-              }}
-            >
-              $30
-            </div>
-          </div>
-        </Link>
-
-        <Link
-          to="/store/soul-parka"
-          style={{
-            width: `100%`,
-            height: `fit-content`,
-            textAlign: "center",
-            textDecoration: `none`,
-            color: "white",
-          }}
-        >
-          <img src={goldSoul} />
-          <div>
-            <h5
-              style={{
-                marginTop: `1rem`,
-                marginBottom: `0rem`,
-                textTransform: `uppercase`,
-              }}
-            >
-              GOLD SOUL
-            </h5>
-            <p
-              style={{
-                marginTop: `0rem`,
-                marginBottom: `1rem`,
-                textTransform: `uppercase`,
-                letterSpacing: 2,
-                fontSize: 12,
-                lineHeight: `initial`,
-              }}
-            >
-              Parka
-            </p>
-            <div
-              style={{
-                marginTop: `0.5rem`,
-                fontWeight: "700",
-                backgroundColor: `gold`,
-                color: `black`,
-                width: `max-content`,
-                marginLeft: `auto`,
-                marginRight: `auto`,
-                paddingLeft: `0.5rem`,
-                paddingRight: `0.5rem`,
-              }}
-            >
-              $70
-            </div>
-          </div>
-        </Link>
-
-        <Link
-          to="/store/ankara-hoodie"
-          style={{
-            width: `100%`,
-            height: `fit-content`,
-            textAlign: "center",
-            textDecoration: `none`,
-            color: "white",
-          }}
-        >
-          <img src={ankaraHoodie} />
-          <div>
-            <h5
-              style={{
-                marginTop: `1rem`,
-                marginBottom: `0rem`,
-                textTransform: `uppercase`,
-              }}
-            >
-              SOUL Ankara
-            </h5>
-            <p
-              style={{
-                marginTop: `0rem`,
-                marginBottom: `1rem`,
-                textTransform: `uppercase`,
-                letterSpacing: 2,
-                fontSize: 12,
-                lineHeight: `initial`,
-              }}
-            >
-              Hoodie
-            </p>
-            <div
-              style={{
-                marginTop: `0.5rem`,
-                fontWeight: "700",
-                backgroundColor: `gold`,
-                color: `black`,
-                width: `max-content`,
-                marginLeft: `auto`,
-                marginRight: `auto`,
-                paddingLeft: `0.5rem`,
-                paddingRight: `0.5rem`,
-              }}
-            >
-              $70
-            </div>
-          </div>
-        </Link>
-      </StoreContainer>
+      <StoreContainer>{ItemsList}</StoreContainer>
     </Layout>
   )
 }
@@ -232,7 +106,7 @@ const storeQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___price], order: DESC }
       filter: { frontmatter: { type: { eq: "product" } } }
     ) {
       edges {

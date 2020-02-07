@@ -25,7 +25,7 @@ const Layout = props => {
             </div>
           </button>
           {/* OLD SITE LEFT NAV */}
-          {/* <nav id="swup" class="site-head-left">
+          {/* <nav id="swup" className="site-head-left">
             <ul className="nav" role="menu">
               <li className="nav-home nav-current" role="menuitem">
                 <Link to={`/`}>Home</Link>
@@ -62,7 +62,7 @@ const Layout = props => {
                 <b>SERVICES</b>
               </div>
             </div>
-            <nav id="swup" class="site-head-middle">
+            <nav id="swup" className="site-head-middle">
               <ul className="nav" role="menu">
                 <li className="" role="menuitem">
                   <Link to={`/services/beats`}>Beats</Link>
