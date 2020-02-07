@@ -9,11 +9,12 @@ class StoreItemTemplate extends React.Component {
   render() {
     const item = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const subtitle = item.frontmatter.subtitle
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={item.frontmatter.title}
+          title={item.frontmatter.title + item.frontmatter.subtitle}
           description={item.frontmatter.description || item.excerpt}
         />
 
@@ -38,6 +39,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
+        subtitle
         date(formatString: "MMMM DD, YYYY")
         description
         thumbnail {
