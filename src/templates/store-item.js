@@ -97,7 +97,9 @@ class StoreItemTemplate extends React.Component {
                   marginBottom: `1rem`,
                   textTransform: `uppercase`,
                 }}
+                required
               >
+                <option value="" />
                 <option value="first">small</option>
                 <option value="second">medium</option>
                 <option value="large">large</option>

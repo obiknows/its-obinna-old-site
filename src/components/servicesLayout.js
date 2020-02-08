@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 const Layout = props => {
   const { title, children } = props
@@ -65,23 +66,23 @@ const Layout = props => {
             <nav id="swup" className="site-head-middle">
               <ul className="nav" role="menu">
                 <li className="" role="menuitem">
-                  <Link to={`/services/beats`}>Beats</Link>
+                  <button onClick={() => scrollTo("#beats")}>Beats</button>
                 </li>
                 <li className="nav-elements" role="menuitem">
-                  <Link to={`/services/wealth`}>Wealth</Link>
+                  <button onClick={() => scrollTo("#wealth")}>Wealth</button>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/services/health`}>Health</Link>
+                  <button onClick={() => scrollTo("#health")}>Health</button>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/services/tech`}>Tech</Link>
+                  <button onClick={() => scrollTo("#tech")}>Tech</button>
                 </li>
                 <li className="nav-tags" role="menuitem">
-                  <Link to={`/services/more`}>More</Link>
+                  <button onClick={() => scrollTo("#more")}>More</button>
                 </li>
-                {/* <li className="nav-tags" role="menuitem">
+                <li className="nav-tags" role="menuitem">
                   <Link to={`/`}>Back To The Site</Link>
-                </li> */}
+                </li>
               </ul>
             </nav>
           </div>
