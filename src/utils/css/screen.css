@@ -275,14 +275,18 @@ footer h4 {
 
 .site-head-left a,
 .site-head-middle a,
-.site-head-right a {
+.site-head-right a,
+.site-head-left button,
+.site-head-middle button,
+.site-head-right button {
   display: block;
   margin: 0;
   padding: 10px 12px;
-  color: var(--color-base);
+  color: var(--color-base) !important;
   font-weight: 600;
   /* opacity: 0.4; */
   opacity: 0.55;
+  box-shadow: none;
 }
 
 .nav-current a,
