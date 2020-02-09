@@ -120,6 +120,10 @@ body {
   }
 }
 
+footer {
+  margin-top: 5rem;
+}
+
 .site-foot {
   margin: 3vw 0 1vw;
   text-align: center;

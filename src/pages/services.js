@@ -23,77 +23,59 @@ const ServicesPage = ({ data }, location) => {
       <SectionBreak />
 
       <ServicesContainer>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
+        <ServiceItem>Custom Beat(s)</ServiceItem>
+        <ServiceItem>Mix & Mastering</ServiceItem>
+        {/* <ServiceItem>fdafsa</ServiceItem> */}
       </ServicesContainer>
 
       {/* WEALTH - SECTION HEADER INV */}
-      <SectionHeaderTextInverted id="wealth">
+      {/* <SectionHeaderTextInverted id="wealth">
         HERE FOR THE WEALTH?
-      </SectionHeaderTextInverted>
+      </SectionHeaderTextInverted> */}
       {/* 2 HORIZONTAL LINES INV */}
-      <SectionBreakInverted />
-      <SectionBreakInverted />
+      {/* <SectionBreakInverted />
+      <SectionBreakInverted /> */}
 
-      <ServicesContainer>
+      {/* <ServicesContainer>
         <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-      </ServicesContainer>
+      </ServicesContainer> */}
 
       {/* HEALTH - SECTION HEADER */}
-      <SectionHeaderText id="health">HERE FOR THE HEALTH?</SectionHeaderText>
+      <SectionHeaderTextInverted id="health">
+        HERE FOR THE HEALTH?
+      </SectionHeaderTextInverted>
       {/* 2 HORIZONTAL LINES */}
-      <SectionBreak />
-      <SectionBreak />
+      <SectionBreakInverted />
+      <SectionBreakInverted />
 
       <ServicesContainer>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
+        <ServiceItem>Free Health Consultation</ServiceItem>
       </ServicesContainer>
 
       {/* TECH - SECTION HEADER INV */}
-      <SectionHeaderTextInverted id="tech">
-        HERE FOR THE TECH?
-      </SectionHeaderTextInverted>
+      <SectionHeaderText id="tech">HERE FOR THE TECH?</SectionHeaderText>
       {/* 2 HORIZONTAL LINES INV */}
-      <SectionBreakInverted />
-      <SectionBreakInverted />
+      <SectionBreak />
+      <SectionBreak />
 
       <ServicesContainer>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
+        <ServiceItem>Code Mentorship</ServiceItem>
+        <ServiceItem>Custom Website</ServiceItem>
+        <ServiceItem>Custom Webstore</ServiceItem>
+        <ServiceItem>Custom Application</ServiceItem>
       </ServicesContainer>
 
       {/* MORE - SECTION HEADER */}
-      <SectionHeaderText id="more">ANYTHING ELSE?</SectionHeaderText>
+      <SectionHeaderTextInverted id="more">
+        ANYTHING ELSE?
+      </SectionHeaderTextInverted>
       {/* 2 HORIZONTAL LINES */}
-      <SectionBreak />
-      <SectionBreak />
+      <SectionBreakInverted />
+      <SectionBreakInverted />
 
       <ServicesContainer>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
-        <ServiceItem>fdafsa</ServiceItem>
+        <ServiceItem>Custom Design</ServiceItem>
+        <ServiceItem>Custom Merch</ServiceItem>
       </ServicesContainer>
     </Layout>
   )
