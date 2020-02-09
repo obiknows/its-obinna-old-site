@@ -43,7 +43,6 @@ const BlogIndex = ({ data }, location) => {
         {posts.map(({ node }) => {
           postCounter++
           if (node.frontmatter.type !== "product") {
-            // if (!node.frontmatter.draft) {
             return (
               <PostCard
                 key={node.fields.slug}
@@ -52,7 +51,8 @@ const BlogIndex = ({ data }, location) => {
                 postClass={`post`}
               />
             )
-            // }
+          } else {
+            return <div />
           }
         })}
       </div>
