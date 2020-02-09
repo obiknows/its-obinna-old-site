@@ -68,9 +68,9 @@ const Layout = props => {
                 <li className="" role="menuitem">
                   <button onClick={() => scrollTo("#beats")}>Beats</button>
                 </li>
-                <li className="nav-elements" role="menuitem">
+                {/* <li className="nav-elements" role="menuitem">
                   <button onClick={() => scrollTo("#wealth")}>Wealth</button>
-                </li>
+                </li> */}
                 <li className="nav-tags" role="menuitem">
                   <button onClick={() => scrollTo("#health")}>Health</button>
                 </li>
