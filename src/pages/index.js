@@ -187,7 +187,7 @@ const SiteIndex = ({ data }, location) => {
         <SectionHeaderTextInverted>CHECK MY SERVICES</SectionHeaderTextInverted>
 
         {/* PROJECT to the LEFT */}
-        <Link to={`/`}>
+        <Link to={`/services`}>
           <div
             style={{
               marginBottom: `10rem`,

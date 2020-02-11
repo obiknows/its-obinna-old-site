@@ -62,7 +62,7 @@ const ServicesPage = ({ data }, location) => {
         <ServiceItem>Code Mentorship</ServiceItem>
         <ServiceItem>Custom Website</ServiceItem>
         <ServiceItem>Custom Webstore</ServiceItem>
-        <ServiceItem>Custom Application</ServiceItem>
+        <ServiceItem>Custom Tech Project</ServiceItem>
       </ServicesContainer>
 
       {/* MORE - SECTION HEADER */}

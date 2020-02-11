@@ -1,6 +1,9 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery, Link } from "gatsby"
+// import styled from "styled-components"
 // import Img from "gatsby-image"
+
+import flower from "../images/flower.jpg"
 
 import Layout from "../components/workLayout"
 import SEO from "../components/seo"
@@ -14,6 +17,52 @@ const WorkPage = ({ data }, location) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="Work" />
+
+      {/* PROJECT to the RIGHT */}
+      <Link to={`/work`}>
+        <div
+          style={{
+            marginBottom: `10rem`,
+            display: `flex`,
+            justifyContent: `flex-end`,
+          }}
+        >
+          <img src={flower} style={{ width: `40%`, marginRight: 0 }} alt=" " />
+          <h3
+            style={{
+              position: `absolute`,
+              left: `40%`,
+              color: `white`,
+              fontFamily: `Roboto Mono`,
+            }}
+          >
+            My lit first project
+          </h3>
+        </div>
+      </Link>
+
+      {/* PROJECT to the LEFT */}
+      <Link to={`/work`}>
+        <div
+          style={{
+            marginBottom: `10rem`,
+            display: `flex`,
+            flex: `flex-start`,
+          }}
+        >
+          <img src={flower} style={{ width: `40%` }} alt=" " />
+          <h3
+            style={{
+              position: `absolute`,
+              right: `40%`,
+              color: `white`,
+              fontFamily: `Roboto Mono`,
+            }}
+          >
+            My lit first project
+          </h3>
+        </div>
+      </Link>
     </Layout>
   )
 }
@@ -23,31 +72,6 @@ const indexQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    smallPic: file(
-      relativePath: { eq: "fabio-comparelli-696506-unsplash.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    medPic: file(relativePath: { eq: "sophia-valkova-30139-unsplash.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    largePic: file(
-      relativePath: { eq: "vladimir-malyutin-98174-unsplash.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
       }
     }
   }
