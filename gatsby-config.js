@@ -16,6 +16,31 @@ module.exports = {
   plugins: [
     `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-styled-components`,
+    // SNIPCART
+    {
+      resolve: "gatsby-plugin-snipcart",
+      options: {
+        apiKey: "YOUR_SNIPCART_KEY",
+        autopop: true,
+        js: "https://cdn.snipcart.com/scripts/2.0/snipcart.js",
+        jquery: "https://code.jquery.com/jquery-3.4.1.min.js",
+        styles: "https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/services`,
+        name: `services`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/work`,
+        name: `work`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

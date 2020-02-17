@@ -42,7 +42,11 @@ const BlogIndex = ({ data }, location) => {
       <div className="post-feed">
         {posts.map(({ node }) => {
           postCounter++
-          if (node.frontmatter.type !== "product") {
+          if (
+            node.frontmatter.type !== "product" && // not a product
+            node.frontmatter.type !== "service" && // not a service
+            node.frontmatter.type !== "project" // not a project (work)
+          ) {
             return (
               <PostCard
                 key={node.fields.slug}

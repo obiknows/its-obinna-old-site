@@ -49,7 +49,7 @@ const Layout = props => {
                 alignItems: `center`,
               }}
             >
-              <Link className="site-head-logo" to={`/`}>
+              <Link className="site-head-logo" to={`/work`}>
                 {title}
               </Link>
               <div

@@ -5,6 +5,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const projectPage = path.resolve(`./src/templates/project-page.js`)
+  const servicePage = path.resolve(`./src/templates/service-page.js`)
   const storeItem = path.resolve(`./src/templates/store-item.js`)
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const tagPage = path.resolve(`./src/templates/tag-page.js`)
@@ -36,8 +38,8 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog posts pages.
-    // Create store item pages.
+    // TODO: Create service item pages.
+    // TODO: Create portfolio (work) item pages.
     const items = result.data.allMarkdownRemark.edges
     const tagSet = new Set()
 
@@ -52,8 +54,37 @@ exports.createPages = ({ graphql, actions }) => {
         })
       }
 
-      // create a store post
-      if (item.node.frontmatter.type == "product") {
+      if (item.node.frontmatter.type == "service") {
+        console.log("created the service page:", item.node.frontmatter.title)
+
+        createPage({
+          path: item.node.fields.slug,
+          component: servicePage,
+          context: {
+            slug: item.node.fields.slug,
+            previous,
+            next,
+          },
+        })
+
+        console.log("Created a service page")
+      } else if (item.node.frontmatter.type == "project") {
+        // create a work post
+        console.log("created the work page:", item.node.frontmatter.title)
+
+        createPage({
+          path: item.node.fields.slug,
+          component: projectPage,
+          context: {
+            slug: item.node.fields.slug,
+            previous,
+            next,
+          },
+        })
+
+        console.log("Created a work page")
+      } else if (item.node.frontmatter.type == "product") {
+        // create a store post
         console.log("created the product:", item.node.frontmatter.title)
 
         createPage({
@@ -103,7 +134,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     // if its a product, create a store page
     // if not, create a blog page
 
-    if (node.frontmatter.type == "product") {
+    if (node.frontmatter.type == "service") {
+      const value = `/service` + createFilePath({ node, getNode })
+
+      console.log("service slug value:", value)
+
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    } else if (node.frontmatter.type == "project") {
+      const value = `/work` + createFilePath({ node, getNode })
+
+      console.log("work slug value:", value)
+
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      })
+    } else if (node.frontmatter.type == "product") {
       const value = `/store` + createFilePath({ node, getNode })
 
       console.log("store slug value:", value)
