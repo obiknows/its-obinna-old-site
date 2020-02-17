@@ -4,6 +4,8 @@ import { Link } from "gatsby"
 import itsObinna from "../images/its-obinna-hex.png"
 import "../utils/css/screen.css"
 
+import Footer from "./footer"
+
 const Layout = props => {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
@@ -92,62 +94,7 @@ const Layout = props => {
         </div>
       </main>
       {/* FOOTER */}
-      <footer>
-        <div className="footer-container">
-          <br />
-          <br />
-          <div className="collabo" style={{ lineHeight: `4rem` }}>
-            <p>Got an interesting project? Let's link up.</p>
-          </div>
-          <br />
-          <div className="hr" />
-          <br />
-          <br />
-          <div className="info">
-            <div className="connect">
-              <p>connect with me</p>
-              <h4>ig @itsobinna</h4>
-            </div>
-            <div className="check">
-              <p>check the socials</p>
-              <ul className="social">
-                <li className="instagram">ig</li>
-                <li className="youtube">yt</li>
-                <li className="github">gh</li>
-                <li className="pinterest">pin</li>
-              </ul>
-            </div>
-            <div className="say-hello">
-              <p>say hello</p>
-              <h4>obiknows88@gmail.com</h4>
-            </div>
-          </div>
-          <br />
-          <div className="site-foot">
-            &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>{" "}
-            &mdash; Built by{" "}
-            <a
-              href="https://instagram.com/itsobinna"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Obinna
-            </a>
-          </div>
-        </div>
-      </footer>
-      {/* FOOTER - END */}
-      {/* <footer className="site-foot">
-        &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link> &mdash;
-        Built by{" "}
-        <a
-          href="https://instagram.com/itsobinna"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Obinna
-        </a>
-      </footer> */}
+      <Footer />
     </div>
   )
 }
