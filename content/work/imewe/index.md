@@ -1,0 +1,18 @@
+---
+type: project
+title: IMEWE
+subtitle: Design Agency / Development Agency
+date: 2020-01-21
+thumbnail: ./img/IMEWE.png
+description: You got a gold soul. Dont let it tarnish
+---
+
+This is an upcoming app that real simple. Released by IMEWE Inc.
+
+A free Habit Tracking App that reminds you throughout the day to drink ya water.
+
+Based on your weight. Get your oz's in. No mary jane.
+
+Inspired by the app Narative website.
+
+<!-- PICTURES OF THE APP UX/  -->
