@@ -4,8 +4,6 @@ import { graphql, StaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import flower from "../images/flower.jpg"
-
 import Layout from "../components/workLayout"
 import SEO from "../components/seo"
 

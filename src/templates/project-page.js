@@ -10,32 +10,39 @@ class ProjectPageTemplate extends React.Component {
     const item = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    console.log(item)
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={`${item.frontmatter.title}`}
           description={item.frontmatter.description || item.excerpt}
         />
-        <ProjectItemContainer style={{ marginBottom: `10rem` }}>
-          {/* Product Photo + Gallery */}
-          <div>
-            {/* <p>product photo + gallery</p> */}
-            <div style={{ textAlign: "center" }}>
-              <Img
-                fluid={item.frontmatter.thumbnail.childImageSharp.fluid}
-                style={{
-                  maxWidth: `350px`,
-                  marginLeft: `auto`,
-                  marginRight: `auto`,
-                }}
-              />
-            </div>
-            {/* Product Info + Sizing Info + Add to Cart + Buy Now Button */}
-            <div>
-              <div style={{}}>
-                {/* Title + Subtitle */}
+        <ProjectItemContainer
+          style={{ marginTop: `5rem`, marginBottom: `10rem` }}
+        >
+          {/* Project Photo + Words + Gallery */}
+          {/* Project Thumbnail */}
+          <div style={{ textAlign: "center", marginBottom: `5rem` }}>
+            <Img
+              fluid={item.frontmatter.thumbnail.childImageSharp.fluid}
+              style={{
+                maxWidth: `300px`,
+                marginLeft: `auto`,
+                marginRight: `auto`,
+              }}
+            />
+          </div>
+          {/* Project Info + Gallery */}
+          <div style={{ textAlign: "center" }}>
+            {/* Title + Subtitle */}
+            <div
+              style={{
+                marginLeft: `auto`,
+                marginRight: `auto`,
+                paddingLeft: `10vw`,
+                paddingRight: `10vw`,
+              }}
+            >
+              <div>
                 <h5
                   style={{
                     fontSize: 36,
@@ -58,21 +65,35 @@ class ProjectPageTemplate extends React.Component {
                 >
                   {item.frontmatter.subtitle}
                 </p>
-                {/* Description */}
-                <div
-                  style={{
-                    marginTop: `1rem`,
-                    fontSize: 18,
-                    color: `rgba(255,255,255,0.66)`,
-                  }}
-                >
-                  "{item.frontmatter.description}"
-                </div>
-                {/* Item Description */}
-                <div style={{ marginTop: `1rem` }}>
-                  <div dangerouslySetInnerHTML={{ __html: item.html }} />
-                </div>
               </div>
+              {/* Description */}
+              <div
+                style={{
+                  marginTop: `1rem`,
+                  fontSize: 22,
+                  color: `rgba(255,255,255,0.66)`,
+                }}
+              >
+                "{item.frontmatter.description}"
+              </div>
+              {/* Project Link */}
+              <div
+                style={{
+                  marginTop: `1rem`,
+                  fontSize: 16,
+                  color: `rgba(255,255,255,0.66)`,
+                }}
+              >
+                <a href={item.frontmatter.project_link}>
+                  {item.frontmatter.project_link}
+                </a>
+              </div>
+            </div>
+
+            {/* Item Description */}
+            {/* TODO: fix the white background on markdown images */}
+            <div style={{ marginTop: `5rem`, fontSize: 18 }}>
+              <div dangerouslySetInnerHTML={{ __html: item.html }} />
             </div>
           </div>
         </ProjectItemContainer>
@@ -85,22 +106,18 @@ class ProjectPageTemplate extends React.Component {
 
 // STYLED COMPONENTS
 const ProjectItemContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: auto;
-  grid-column-gap: 4rem;
-  grid-row-gap: 4rem;
-  margin-top: 4rem;
-  margin-right: 4rem;
-  margin-left: 4rem;
+  // display: grid;
+  // grid-template-columns: repeat(1, 1fr);
+  // grid-template-rows: auto;
+  // grid-column-gap: 4rem;
+  // grid-row-gap: 4rem;
+  // margin-top: 4rem;
+  // margin-right: 4rem;
+  // margin-left: 4rem;
 
-  @media (max-width: 1050px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 750px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  // @media (max-width: 750px) {
+  //   grid-template-columns: repeat(1, 1fr);
+  // }
 `
 
 export default ProjectPageTemplate
@@ -118,12 +135,12 @@ export const pageQuery = graphql`
       frontmatter {
         title
         subtitle
-        price
+        project_link
         date(formatString: "MMMM DD, YYYY")
         description
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 500) {
+            fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
             }
           }
