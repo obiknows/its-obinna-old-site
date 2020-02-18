@@ -68,19 +68,19 @@ const Layout = props => {
             </div>
             <nav id="swup" className="site-head-middle">
               <ul className="nav" role="menu">
-                <li className="" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/store/beats`}>Beats</Link>
                 </li>
-                {/* <li className="nav-elements" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/store/wealth`}>Wealth</Link>
-                </li> */}
-                <li className="nav-tags" role="menuitem">
+                </li>
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/store/health`}>Health</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/store/tech`}>Tech</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/store/more`}>More</Link>
                 </li>
                 <li className="nav-tags" role="menuitem">
