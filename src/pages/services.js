@@ -1,6 +1,6 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
-// import Img from "gatsby-image"
+import { graphql, StaticQuery, Link } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
 
 import Layout from "../components/servicesLayout"
@@ -11,6 +11,90 @@ import "../utils/css/screen.css"
 
 const ServicesPage = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
+  const services = data.allMarkdownRemark.edges
+
+  const Beats = services.filter(
+    service => service.node.frontmatter.category === "Beats"
+  )
+  const Techs = services.filter(
+    service => service.node.frontmatter.category === "Tech"
+  )
+  const Healths = services.filter(
+    service => service.node.frontmatter.category === "Health"
+  )
+  const Mores = services.filter(
+    service => service.node.frontmatter.category === "More"
+  )
+  // const Wealths = services.filter(service => service.node.frontmatter.category === "Wealth")
+
+  let BeatsServices = Beats.map(service => {
+    return (
+      <Link
+        to={service.node.fields.slug}
+        style={{ textAlign: "center", color: `white` }}
+      >
+        <ServiceItem>
+          <Img
+            fixed={service.node.frontmatter.thumbnail.childImageSharp.fixed}
+          />
+        </ServiceItem>
+        <p style={{ marginTop: 20, fontSize: 20 }}>
+          {service.node.frontmatter.title}
+        </p>
+      </Link>
+    )
+  })
+  let TechServices = Techs.map(service => {
+    return (
+      <Link
+        to={service.node.fields.slug}
+        style={{ textAlign: "center", color: `white` }}
+      >
+        <ServiceItem>
+          <Img
+            fixed={service.node.frontmatter.thumbnail.childImageSharp.fixed}
+          />
+        </ServiceItem>
+        <p style={{ marginTop: 20, fontSize: 20 }}>
+          {service.node.frontmatter.title}
+        </p>
+      </Link>
+    )
+  })
+  let HealthServices = Healths.map(service => {
+    return (
+      <Link
+        to={service.node.fields.slug}
+        style={{ textAlign: "center", color: `white` }}
+      >
+        <ServiceItem>
+          <Img
+            fixed={service.node.frontmatter.thumbnail.childImageSharp.fixed}
+          />
+        </ServiceItem>
+        <p style={{ marginTop: 20, fontSize: 20 }}>
+          {service.node.frontmatter.title}
+        </p>
+      </Link>
+    )
+  })
+  let MoreServices = Mores.map(service => {
+    return (
+      <Link
+        to={service.node.fields.slug}
+        style={{ textAlign: "center", color: `white` }}
+      >
+        <ServiceItem>
+          <Img
+            fixed={service.node.frontmatter.thumbnail.childImageSharp.fixed}
+          />
+        </ServiceItem>
+        <p style={{ marginTop: 20, fontSize: 20 }}>
+          {service.node.frontmatter.title}
+        </p>
+      </Link>
+    )
+  })
 
   return (
     <Layout title={siteTitle}>
@@ -22,23 +106,7 @@ const ServicesPage = ({ data }, location) => {
       <SectionBreak />
       <SectionBreak />
 
-      <ServicesContainer>
-        <ServiceItem>Custom Beat(s)</ServiceItem>
-        <ServiceItem>Mix & Mastering</ServiceItem>
-        {/* <ServiceItem>fdafsa</ServiceItem> */}
-      </ServicesContainer>
-
-      {/* WEALTH - SECTION HEADER INV */}
-      {/* <SectionHeaderTextInverted id="wealth">
-        HERE FOR THE WEALTH?
-      </SectionHeaderTextInverted> */}
-      {/* 2 HORIZONTAL LINES INV */}
-      {/* <SectionBreakInverted />
-      <SectionBreakInverted /> */}
-
-      {/* <ServicesContainer>
-        <ServiceItem>fdafsa</ServiceItem>
-      </ServicesContainer> */}
+      <ServicesContainer>{BeatsServices}</ServicesContainer>
 
       {/* HEALTH - SECTION HEADER */}
       <SectionHeaderTextInverted id="health">
@@ -48,9 +116,7 @@ const ServicesPage = ({ data }, location) => {
       <SectionBreakInverted />
       <SectionBreakInverted />
 
-      <ServicesContainer>
-        <ServiceItem>Free Health Consultation</ServiceItem>
-      </ServicesContainer>
+      <ServicesContainer>{HealthServices}</ServicesContainer>
 
       {/* TECH - SECTION HEADER INV */}
       <SectionHeaderText id="tech">HERE FOR THE TECH?</SectionHeaderText>
@@ -58,12 +124,7 @@ const ServicesPage = ({ data }, location) => {
       <SectionBreak />
       <SectionBreak />
 
-      <ServicesContainer>
-        <ServiceItem>Code Mentorship</ServiceItem>
-        <ServiceItem>Custom Website</ServiceItem>
-        <ServiceItem>Custom Webstore</ServiceItem>
-        <ServiceItem>Custom Tech Project</ServiceItem>
-      </ServicesContainer>
+      <ServicesContainer>{TechServices}</ServicesContainer>
 
       {/* MORE - SECTION HEADER */}
       <SectionHeaderTextInverted id="more">
@@ -73,10 +134,7 @@ const ServicesPage = ({ data }, location) => {
       <SectionBreakInverted />
       <SectionBreakInverted />
 
-      <ServicesContainer>
-        <ServiceItem>Custom Design</ServiceItem>
-        <ServiceItem>Custom Merch</ServiceItem>
-      </ServicesContainer>
+      <ServicesContainer>{MoreServices}</ServicesContainer>
     </Layout>
   )
 }
@@ -101,7 +159,7 @@ const ServicesContainer = styled.div`
   }
 `
 const ServiceItem = styled.div`
-  background-color: green;
+  // background-color: green;
   height: 200px;
 `
 
@@ -131,11 +189,43 @@ const SectionHeaderTextInverted = styled.h2`
   font-family: "Roboto Mono";
 `
 
-const indexQuery = graphql`
+const servicesQuery = graphql`
   query {
     site {
       siteMetadata {
         title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { eq: "service" }, draft: { ne: true } } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM D, YYYY")
+            title
+            draft
+            subtitle
+            category
+            description
+            tags
+            thumbnail {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+                fluid(maxWidth: 2000) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -143,7 +233,7 @@ const indexQuery = graphql`
 
 export default props => (
   <StaticQuery
-    query={indexQuery}
+    query={servicesQuery}
     render={data => (
       <ServicesPage location={props.location} data={data} {...props} />
     )}

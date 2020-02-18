@@ -1,9 +1,9 @@
 ---
 type: service
-category: Health
-title: Free Health Consultation
+category: More
+title: Custom Design
 date: 2020-01-21
-thumbnail: ./img/health.jpg
+thumbnail: ./img/custom-design.jpg
 description: Let's talk health
 ---
 

@@ -1,9 +1,9 @@
 ---
 type: service
-category: Health
-title: Free Health Consultation
+category: Beats
+title: Custom Beats
 date: 2020-01-21
-thumbnail: ./img/health.jpg
+thumbnail: ./img/custom-beats.png
 description: Let's talk health
 ---
 

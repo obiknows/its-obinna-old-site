@@ -1,9 +1,9 @@
 ---
 type: service
-category: Health
-title: Free Health Consultation
+category: More
+title: Custom Merch
 date: 2020-01-21
-thumbnail: ./img/health.jpg
+thumbnail: ./img/custom-merch.jpg
 description: Let's talk health
 ---
 

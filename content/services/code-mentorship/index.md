@@ -1,8 +1,9 @@
 ---
 type: service
+category: Tech
 title: Code Mentorship
 date: 2020-01-21
-thumbnail: ./img/gold-soul.png
+thumbnail: ./img/code-mentorship.png
 description: Got code? Need help?
 ---
 
