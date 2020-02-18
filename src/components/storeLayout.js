@@ -1,8 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import Cart from "./cart"
 import Footer from "./footer"
 
+// TODO: add in a cart from a cart component (from here --> https://www.frontendstumbles.com/gatsby-and-snipcart-ecommerce-tutorial/)
 const Layout = props => {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)
@@ -88,42 +90,9 @@ const Layout = props => {
             </nav>
           </div>
           {/* OLD SITE RIGHT NAV */}
-          {/* <div className="site-head-right">
-            <div className="social-links">
-              <a
-                href="https://www.facebook.com"
-                title="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com"
-                title="Twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              <Link
-                to={`/rss.xml`}
-                title="RSS"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                RSS
-              </Link>
-              <a
-                href="https://github.com/vaporwavy/gatsby-london-after-midnight"
-                title="GitHub"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </div>
-          </div> */}
+          <div style={{ position: `absolute`, right: 0 }}>
+            <Cart />
+          </div>
         </div>
       </header>
       <main id="site-main" className="site-main">
