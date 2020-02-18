@@ -67,22 +67,22 @@ const Layout = props => {
             </div>
             <nav id="swup" className="site-head-middle">
               <ul className="nav" role="menu">
-                <li className="" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <button onClick={() => scrollTo("#beats")}>Beats</button>
                 </li>
-                {/* <li className="nav-elements" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <button onClick={() => scrollTo("#wealth")}>Wealth</button>
-                </li> */}
-                <li className="nav-tags" role="menuitem">
+                </li>
+                <li className="nav-tags hidden" role="menuitem">
                   <button onClick={() => scrollTo("#health")}>Health</button>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <button onClick={() => scrollTo("#tech")}>Tech</button>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <button onClick={() => scrollTo("#more")}>More</button>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags " role="menuitem">
                   <Link to={`/`}>Back To The Site</Link>
                 </li>
               </ul>
