@@ -6,11 +6,37 @@ import Layout from "../components/storeLayout"
 import SEO from "../components/seo"
 
 class StoreItemTemplate extends React.Component {
+  state = {
+    selected: this.props.data.markdownRemark.frontmatter.customField.values[0]
+      .name,
+  }
+
+  setSelected = value => {
+    this.setState({ selected: value })
+  }
+
+  updatePrice = (basePrice, values) => {
+    const selectedOption = values.find(
+      option => option.name === this.state.selected
+    )
+    return (basePrice + selectedOption.priceChange).toFixed(2)
+  }
+
+  createString = values => {
+    return values
+      .map(option => {
+        const price =
+          option.priceChange >= 0
+            ? `[+${option.priceChange}]`
+            : `[${option.priceChange}]`
+        return `${option.name}${price}`
+      })
+      .join("|")
+  }
+
   render() {
     const item = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-
-    console.log(item)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -83,7 +109,12 @@ class StoreItemTemplate extends React.Component {
                   paddingBottom: `0.25rem`,
                 }}
               >
-                ${item.frontmatter.price}
+                $
+                {this.updatePrice(
+                  item.frontmatter.price,
+                  item.frontmatter.customField.values
+                )}
+                {/* {item.frontmatter.price} */}
               </div>
               {/* Item Description */}
               <div style={{ marginTop: `1rem` }}>
@@ -91,6 +122,9 @@ class StoreItemTemplate extends React.Component {
               </div>
               {/* Size Options  */}
               <select
+                id={item.frontmatter.customField.name}
+                onChange={e => this.setSelected(e.target.value)}
+                value={this.state.selected}
                 name="size"
                 style={{
                   width: `50%`,
@@ -99,27 +133,58 @@ class StoreItemTemplate extends React.Component {
                 }}
                 required
               >
-                <option value="" />
+                {item.frontmatter.customField.values.map(option => (
+                  <option key={option.name}>{option.name}</option>
+                ))}
+                {/* <option value="" />
                 <option value="first">small</option>
                 <option value="second">medium</option>
                 <option value="large">large</option>
                 <option value="xlarge">x-large</option>
-                <option value="xxlarge">xx-large</option>
+                <option value="xxlarge">xx-large</option> */}
               </select>
               {/* Add to Cart, Buy Now Button,  */}
               <div
+                // style={{
+                //   backgroundColor: `black`,
+                //   fontWeight: 700,
+                //   textAlign: `center`,
+                //   paddingTop: `1rem`,
+                //   paddingBottom: `1rem`,
+                //   textTransform: `uppercase`,
+                // }}
                 style={{
-                  backgroundColor: `black`,
+                  backgroundColor: `gold`,
                   fontWeight: 700,
+                  color: `black`,
                   textAlign: `center`,
+                  marginTop: `1rem`,
                   paddingTop: `1rem`,
                   paddingBottom: `1rem`,
                   textTransform: `uppercase`,
                 }}
+                className="snipcart-add-item"
+                data-item-id={item.frontmatter.id}
+                data-item-price={item.frontmatter.price}
+                data-item-name={item.frontmatter.title}
+                data-item-description={item.frontmatter.description}
+                data-item-image={
+                  item.frontmatter.thumbnail.childImageSharp.fluid.src
+                }
+                data-item-url={"https://itsobinna.com" + item.fields.slug} //REPLACE WITH OWN URL
+                data-item-custom1-name={
+                  item.frontmatter.customField
+                    ? item.frontmatter.customField.name
+                    : null
+                }
+                data-item-custom1-options={this.createString(
+                  item.frontmatter.customField.values
+                )}
+                data-item-custom1-value={this.state.selected}
               >
                 Add To Cart
               </div>
-              <div
+              {/* <div
                 style={{
                   backgroundColor: `gold`,
                   fontWeight: 700,
@@ -132,7 +197,7 @@ class StoreItemTemplate extends React.Component {
                 }}
               >
                 Buy Now
-              </div>
+              </div> */}
             </div>
           </div>
         </StoreItemContainer>
@@ -175,12 +240,23 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
+        id
         title
         subtitle
         price
         date(formatString: "MMMM DD, YYYY")
         description
+        customField {
+          name
+          values {
+            name
+            priceChange
+          }
+        }
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 500) {
