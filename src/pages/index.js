@@ -46,44 +46,32 @@ const SiteIndex = ({ data }, location) => {
             onInit={typewriter => {
               typewriter
                 .typeString(`My name's Obinna.`)
-                .pauseFor(500)
+                .pauseFor(250)
                 .deleteAll()
 
                 .typeString(`I'm here to build with my people.`)
                 .pauseFor(500)
                 .deleteAll()
 
-                // .typeString(`I mess with herbs.`)
-                // .pauseFor(750)
-                // .deleteAll()
-
                 .typeString(`I build apps.`)
-                .pauseFor(750)
+                .pauseFor(250)
                 .deleteAll()
 
                 .typeString(`I make beats.`)
-                .pauseFor(750)
+                .pauseFor(250)
                 .deleteAll()
 
-                // .typeString(`I study tradition.`)
-                // .pauseFor(750)
-                // .deleteAll()
+                .typeString(`I study health.`)
+                .pauseFor(250)
+                .deleteAll()
 
                 .typeString(`I practice wealth.`)
-                .pauseFor(750)
+                .pauseFor(250)
                 .deleteAll()
 
-                .typeString(`I'm here on a mission to bring change.`)
+                .typeString(`I'm on a mission to help us win.`)
                 .pauseFor(500)
                 .deleteAll()
-
-                // .typeString(`I am here to bring change.`)
-                // .pauseFor(500)
-                // .deleteAll()
-
-                // .typeString(`ISE`)
-                // .pauseFor(500)
-                // .deleteAll()
 
                 .start()
             }}

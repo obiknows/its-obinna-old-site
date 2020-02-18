@@ -1,9 +1,9 @@
 ---
 type: service
-category: Health
-title: Free Health Consultation
+category: Tech
+title: Custom Tech Project
 date: 2020-01-21
-thumbnail: ./img/health.jpg
+thumbnail: ./img/custom-tech-project.jpg
 description: Let's talk health
 ---
 
