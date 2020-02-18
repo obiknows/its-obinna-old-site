@@ -20,7 +20,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-snipcart",
       options: {
-        apiKey: "YOUR_SNIPCART_KEY",
+        apiKey:
+          "ODM2MDEzNzEtMDUxNi00NzU2LTlkYjktMGQ4NjQwM2ExMzM2NjM2OTczOTc4ODEwNjk2NDk3",
         autopop: true,
         js: "https://cdn.snipcart.com/scripts/2.0/snipcart.js",
         jquery: "https://code.jquery.com/jquery-3.4.1.min.js",
