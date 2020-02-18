@@ -18,4 +18,4 @@ customField:
   ]
 ---
 
-Fireworks are a noble, traditional way to emphasize the greatness of an event. They command the epic. They are poetry in a dark night sky. They look good, smell strong, and are dangerous to play with. A bit like secret agents.
+This a shirt I designed for me and my Goddess' platform: Our Soul Agenda. Cop a Tee and check us out ova here (https://oursoulagenda.com)
