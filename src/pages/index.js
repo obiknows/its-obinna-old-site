@@ -1,4 +1,5 @@
 import React from "react"
+import Img from "gatsby-image"
 import styled from "styled-components"
 import Typewriter from "typewriter-effect"
 import { graphql, Link, StaticQuery } from "gatsby"
@@ -17,6 +18,46 @@ const SiteIndex = ({ data }, location) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
   let postCounter = 0
+
+  const Projects = posts.filter(
+    project => project.node.frontmatter.type === "project"
+  )
+  // const ServiceItems = posts.filter(
+  //   service => service.node.frontmatter.type === "service"
+  // )
+  // const BlogPosts = posts.filter(
+  //   blogpost => blogpost.node.frontmatter.type === ""
+  // )
+
+  var projectCount = 0
+  let ProjectsSectionContent = Projects.slice(0, 2).map(project => {
+    projectCount++
+    if (projectCount % 2 === 0) {
+      return (
+        /* PROJECT to the RIGHT */
+        <Link to={project.node.fields.slug} style={{ gridArea: "fourth" }}>
+          <div>
+            <Img
+              fluid={project.node.frontmatter.thumbnail.childImageSharp.fluid}
+            />
+            {/* <Img fixed={project.node.frontmatter.thumbnail.childImageSharp.fixed} /> */}
+          </div>
+        </Link>
+      )
+    } else {
+      return (
+        /* PROJECT to the LEFT */
+        <Link to={project.node.fields.slug}>
+          <div>
+            <Img
+              fluid={project.node.frontmatter.thumbnail.childImageSharp.fluid}
+            />
+            {/* <Img fixed={project.node.frontmatter.thumbnail.childImageSharp.fixed} /> */}
+          </div>
+        </Link>
+      )
+    }
+  })
 
   return (
     <Layout title={siteTitle}>
@@ -87,56 +128,9 @@ const SiteIndex = ({ data }, location) => {
 
         {/* SECTION HEADER */}
         <SectionHeaderText>CHECK MY PROJECTS</SectionHeaderText>
-
-        {/* PROJECT to the RIGHT */}
-        <Link to={`/work`}>
-          <div
-            style={{
-              marginBottom: `10rem`,
-              display: `flex`,
-              justifyContent: `flex-end`,
-            }}
-          >
-            <img
-              src={flower}
-              style={{ width: `40%`, marginRight: 0 }}
-              alt=" "
-            />
-            <h3
-              style={{
-                position: `absolute`,
-                left: `40%`,
-                color: `white`,
-                fontFamily: `Roboto Mono`,
-              }}
-            >
-              My lit first project
-            </h3>
-          </div>
-        </Link>
-
-        {/* PROJECT to the LEFT */}
-        <Link to={`/work`}>
-          <div
-            style={{
-              marginBottom: `10rem`,
-              display: `flex`,
-              flex: `flex-start`,
-            }}
-          >
-            <img src={flower} style={{ width: `40%` }} alt=" " />
-            <h3
-              style={{
-                position: `absolute`,
-                right: `40%`,
-                color: `white`,
-                fontFamily: `Roboto Mono`,
-              }}
-            >
-              My lit first project
-            </h3>
-          </div>
-        </Link>
+        <ProjectsSectionContentContainer>
+          {ProjectsSectionContent}
+        </ProjectsSectionContentContainer>
 
         {/* CTA ACTION BUTTON */}
         <Link to={`/work`} style={{ textDecoration: `none` }}>
@@ -174,7 +168,7 @@ const SiteIndex = ({ data }, location) => {
         {/* SECTION HEADER INV */}
         <SectionHeaderTextInverted>CHECK MY SERVICES</SectionHeaderTextInverted>
 
-        {/* PROJECT to the LEFT */}
+        {/* SERVICE to the LEFT */}
         <Link to={`/services`}>
           <div
             style={{
@@ -197,7 +191,7 @@ const SiteIndex = ({ data }, location) => {
           </div>
         </Link>
 
-        {/* PROJECT to the RIGHT */}
+        {/* SERVICE to the RIGHT */}
         <Link to={`/services`}>
           <div
             style={{
@@ -336,6 +330,37 @@ const SectionHeaderTextInverted = styled.h2`
   font-family: "Roboto Mono";
 `
 
+const ProjectsSectionContentContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "first second"
+    "third fourth";
+  // grid-template-rows: auto;
+  // grid-column-gap: 4rem;
+  // grid-row-gap: 4rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-right: 4rem;
+  margin-left: 4rem;
+
+  @media (max-width: 1050px) {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 770px) {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    margin-right: 0rem;
+    margin-left: 0rem;
+  }
+`
+
 const indexQuery = graphql`
   query {
     site {
@@ -346,8 +371,7 @@ const indexQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { eq: null } } }
-      limit: 4
+      filter: { frontmatter: { draft: { ne: true } } }
     ) {
       edges {
         node {
@@ -356,14 +380,19 @@ const indexQuery = graphql`
             slug
           }
           frontmatter {
+            draft
+            type
             date(formatString: "MMMM D, YYYY")
             title
             description
             tags
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 250) {
+                  ...GatsbyImageSharpFixed
+                }
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid_noBase64
                 }
               }
             }
