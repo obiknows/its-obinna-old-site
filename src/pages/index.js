@@ -8,8 +8,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostCard from "../components/postCard"
 
-import flower from "../images/flower.jpg"
-
 // import "../utils/global.scss"
 import "../utils/normalize.css"
 import "../utils/css/screen.css"
@@ -22,12 +20,12 @@ const SiteIndex = ({ data }, location) => {
   const Projects = posts.filter(
     project => project.node.frontmatter.type === "project"
   )
-  // const Services = posts.filter(
-  //   service => service.node.frontmatter.type === "service"
-  // )
-  // const BlogPosts = posts.filter(
-  //   blogpost => blogpost.node.frontmatter.type === ""
-  // )
+  const Services = posts.filter(
+    service => service.node.frontmatter.type === "service"
+  )
+  const BlogPosts = posts.filter(
+    blogpost => blogpost.node.frontmatter.type === null
+  )
 
   var projectCount = 0
   let ProjectsSectionContent = Projects.slice(0, 2).map(project => {
@@ -53,6 +51,68 @@ const SiteIndex = ({ data }, location) => {
               fluid={project.node.frontmatter.thumbnail.childImageSharp.fluid}
             />
             {/* <Img fixed={project.node.frontmatter.thumbnail.childImageSharp.fixed} /> */}
+          </div>
+        </Link>
+      )
+    }
+  })
+
+  var serviceCount = 0
+  let ServicesSectionContent = Services.slice(0, 2).map(service => {
+    serviceCount++
+    if (serviceCount % 2 === 0) {
+      return (
+        /* PROJECT to the RIGHT */
+        <Link to={service.node.fields.slug} style={{ gridArea: "fourth" }}>
+          <div
+            style={{
+              textAlign: "center",
+              maxWidth: `350px`,
+              marginLeft: `auto`,
+              marginRight: `auto`,
+            }}
+          >
+            <Img
+              fluid={service.node.frontmatter.thumbnail.childImageSharp.fluid}
+            />
+            <h5
+              style={{
+                marginTop: `1rem`,
+                marginBottom: `0rem`,
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              {service.node.frontmatter.title}
+            </h5>
+          </div>
+        </Link>
+      )
+    } else {
+      return (
+        /* PROJECT to the LEFT */
+        <Link to={service.node.fields.slug}>
+          <div
+            style={{
+              textAlign: "center",
+              maxWidth: `350px`,
+              marginLeft: `auto`,
+              marginRight: `auto`,
+            }}
+          >
+            <Img
+              fluid={service.node.frontmatter.thumbnail.childImageSharp.fluid}
+            />
+            <h5
+              style={{
+                marginTop: `1rem`,
+                marginBottom: `0rem`,
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              {service.node.frontmatter.title}
+            </h5>
           </div>
         </Link>
       )
@@ -128,9 +188,9 @@ const SiteIndex = ({ data }, location) => {
 
         {/* SECTION HEADER */}
         <SectionHeaderText>CHECK MY PROJECTS</SectionHeaderText>
-        <ProjectsSectionContentContainer>
+        <SectionContentContainer>
           {ProjectsSectionContent}
-        </ProjectsSectionContentContainer>
+        </SectionContentContainer>
 
         {/* CTA ACTION BUTTON */}
         <Link to={`/work`} style={{ textDecoration: `none` }}>
@@ -167,56 +227,9 @@ const SiteIndex = ({ data }, location) => {
 
         {/* SECTION HEADER INV */}
         <SectionHeaderTextInverted>CHECK MY SERVICES</SectionHeaderTextInverted>
-
-        {/* SERVICE to the LEFT */}
-        <Link to={`/services`}>
-          <div
-            style={{
-              marginBottom: `10rem`,
-              display: `flex`,
-              flex: `flex-start`,
-            }}
-          >
-            <img src={flower} style={{ width: `40%` }} alt=" " />
-            <h3
-              style={{
-                position: `absolute`,
-                right: `40%`,
-                color: `white`,
-                fontFamily: `Roboto Mono`,
-              }}
-            >
-              My lit first project
-            </h3>
-          </div>
-        </Link>
-
-        {/* SERVICE to the RIGHT */}
-        <Link to={`/services`}>
-          <div
-            style={{
-              marginBottom: `10rem`,
-              display: `flex`,
-              justifyContent: `flex-end`,
-            }}
-          >
-            <img
-              src={flower}
-              style={{ width: `40%`, marginRight: 0 }}
-              alt=" "
-            />
-            <h3
-              style={{
-                position: `absolute`,
-                left: `40%`,
-                color: `white`,
-                fontFamily: `Roboto Mono`,
-              }}
-            >
-              My lit first project
-            </h3>
-          </div>
-        </Link>
+        <SectionContentContainer>
+          {ServicesSectionContent}
+        </SectionContentContainer>
 
         {/* CTA ACTION BUTTON */}
         <Link to={`/services`} style={{ textDecoration: `none` }}>
@@ -253,9 +266,9 @@ const SiteIndex = ({ data }, location) => {
         </SectionHeaderText>
 
         <PostCard
-          key={posts[1].node.fields.slug}
+          key={BlogPosts[0].node.fields.slug}
           count={postCounter}
-          node={posts[1].node}
+          node={BlogPosts[0].node}
           postClass={`post`}
         />
       </FeaturedPostSection>
@@ -330,7 +343,7 @@ const SectionHeaderTextInverted = styled.h2`
   font-family: "Roboto Mono";
 `
 
-const ProjectsSectionContentContainer = styled.div`
+const SectionContentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
