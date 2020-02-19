@@ -83,7 +83,7 @@ class Cart extends Component {
         <CartSummary className="snipcart-summary">
           <a href="#" className="snipcart-checkout">
             CART
-            {/* TODO: pick a cart icon */}
+            {/* No cart icon */}
             {/* <ShoppingCart size='40px' /> */}
           </a>
           <div>({this.state.items})</div>

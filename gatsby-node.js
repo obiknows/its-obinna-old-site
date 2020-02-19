@@ -38,8 +38,6 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // TODO: Create service item pages.
-    // TODO: Create portfolio (work) item pages.
     const items = result.data.allMarkdownRemark.edges
     const tagSet = new Set()
 
