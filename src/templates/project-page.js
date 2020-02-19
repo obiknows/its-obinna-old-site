@@ -23,6 +23,7 @@ class ProjectPageTemplate extends React.Component {
           {/* Project Thumbnail */}
           <div style={{ textAlign: "center", marginBottom: `5rem` }}>
             <Img
+              backgroundColor={false}
               fluid={item.frontmatter.thumbnail.childImageSharp.fluid}
               style={{
                 maxWidth: `300px`,
@@ -141,7 +142,7 @@ export const pageQuery = graphql`
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 400) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_noBase64
             }
           }
         }
