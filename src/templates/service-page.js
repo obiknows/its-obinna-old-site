@@ -91,46 +91,6 @@ class ServicePageTemplate extends React.Component {
               </div>
 
               {/* Book a Free Consultation Call  */}
-              {/* <!-- Calendly inline widget begin --> */}
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/itsobinna/15min"
-                /*style="min-width:320px;height:630px;"*/ style={{
-                  minWidth: `320px`,
-                  height: `630px`,
-                }}
-              />
-              <script
-                type="text/javascript"
-                src="https://assets.calendly.com/assets/external/widget.js"
-              />
-              {/* <!-- Calendly inline widget end --> */}
-              <div
-                style={{
-                  backgroundColor: `black`,
-                  fontWeight: 700,
-                  textAlign: `center`,
-                  paddingTop: `1rem`,
-                  paddingBottom: `1rem`,
-                  textTransform: `uppercase`,
-                }}
-              >
-                Add To Cart
-              </div>
-              <div
-                style={{
-                  backgroundColor: `gold`,
-                  fontWeight: 700,
-                  color: `black`,
-                  textAlign: `center`,
-                  marginTop: `1rem`,
-                  paddingTop: `1rem`,
-                  paddingBottom: `1rem`,
-                  textTransform: `uppercase`,
-                }}
-              >
-                Buy Now
-              </div>
             </div>
           </div>
         </StoreItemContainer>
