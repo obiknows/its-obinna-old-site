@@ -21,34 +21,72 @@ const ContactPage = ({ data }, location) => {
             Producer. Entrepreneur. Designer. Investor. Inventor. <br /> Future
             Baby Daddy
           </h2>
-          <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.benchAccounting.childImageSharp.fluid}
-              className="kg-image"
-            />
-            <figcaption>Large imagery is at the heart of this theme</figcaption>
-          </figure>
-          <h3 id="dynamic-styles">Dynamic styles</h3>
+          <p>You wanna work together? Hit my line</p>
           <p>
-            London comes with photo-centric main layout best suited to
-            photography, graphics portfolios and other image-heavy uses.
+            <b>
+              Send a DM to{" "}
+              <a href="https://instagram.com/itsobinna">
+                https://instagram.com/itsobinna
+              </a>{" "}
+            </b>
           </p>
           <p>
-            Both post and page templates are light and minimal, with all the
-            focus on the content while the design of the theme gets out of the
-            way. Beneath the hood, London enjoys the full power of the{" "}
-            <a href="https://docs.ghost.org/api/handlebars-themes/">
-              Ghost Handlebars Theme API
-            </a>{" "}
-            to provide limitless customisation options and dynamic styles.
+            Or if that's not your thing, just fill out the form and I'ma get
+            back to you ASAP{" "}
           </p>
-          <p>
-            Don't forget to check out the{" "}
-            <a href="https://docs.ghost.org/integrations/">
-              Ghost Integrations Directory
-            </a>{" "}
-            for more ways to integrate Ghost with your favourite services.
-          </p>
+
+          <form name="contact" method="POST" data-netlify="true">
+            <p>
+              <label>
+                YOUR NAME{" "}
+                <input
+                  type="text"
+                  name="name"
+                  style={{ backgroundColor: "white" }}
+                />
+              </label>
+            </p>
+            <p>
+              <label>
+                YOUR EMAIL{" "}
+                <input
+                  type="email"
+                  name="email"
+                  style={{ backgroundColor: "white" }}
+                />
+              </label>
+            </p>
+            <p>
+              <label>
+                A MESSAGE{" "}
+                <textarea
+                  name="message"
+                  style={{ backgroundColor: "white", minHeight: `5rem` }}
+                />
+              </label>
+            </p>
+            <p>
+              {/* <button type="submit">SEND</button> */}
+              <button
+                type="submit"
+                style={{
+                  marginTop: `0.5rem`,
+                  fontWeight: "700",
+                  backgroundColor: `gold`,
+                  color: `black`,
+                  width: `max-content`,
+                  marginLeft: `auto`,
+                  marginRight: `auto`,
+                  paddingLeft: `1rem`,
+                  paddingRight: `1rem`,
+                  borderRadius: 0,
+                  boxShadow: "none",
+                }}
+              >
+                SEND
+              </button>
+            </p>
+          </form>
         </div>
       </article>
     </Layout>
