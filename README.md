@@ -4,6 +4,4 @@
 
 ---
 
-A custom, lit lit website built in React.
-
-**Based on [London](https://github.com/ImedAdel/gatsby-london) for Gatsby**
+A custom, lit lit website built by me, for me.
