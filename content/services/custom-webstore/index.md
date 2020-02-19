@@ -7,4 +7,8 @@ thumbnail: ./img/custom-webstore.png
 description: Let's talk health
 ---
 
-Remedies, remedies, lets talk about it and i'll put you on game
+Want to start selling stuff online? Don't know where to begin?
+
+Schedule a call with me to talk about it and get we can assess what you need and get started.
+
+**LINK: https://calendly.com/itsobinna/15min**

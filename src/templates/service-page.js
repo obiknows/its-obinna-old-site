@@ -70,7 +70,7 @@ class ServicePageTemplate extends React.Component {
                 "{item.frontmatter.description}"
               </div>
               {/* Price */}
-              <div
+              {/* <div
                 style={{
                   fontWeight: "bolder",
                   backgroundColor: `gold`,
@@ -84,29 +84,27 @@ class ServicePageTemplate extends React.Component {
                 }}
               >
                 ${item.frontmatter.price}
-              </div>
+              </div> */}
               {/* Item Description */}
               <div style={{ marginTop: `1rem` }}>
                 <div dangerouslySetInnerHTML={{ __html: item.html }} />
               </div>
-              {/* Size Options  */}
-              <select
-                name="size"
-                style={{
-                  width: `50%`,
-                  marginBottom: `1rem`,
-                  textTransform: `uppercase`,
+
+              {/* Book a Free Consultation Call  */}
+              {/* <!-- Calendly inline widget begin --> */}
+              <div
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/itsobinna/15min"
+                /*style="min-width:320px;height:630px;"*/ style={{
+                  minWidth: `320px`,
+                  height: `630px`,
                 }}
-                required
-              >
-                <option value="" />
-                <option value="first">small</option>
-                <option value="second">medium</option>
-                <option value="large">large</option>
-                <option value="xlarge">x-large</option>
-                <option value="xxlarge">xx-large</option>
-              </select>
-              {/* Add to Cart, Buy Now Button,  */}
+              />
+              <script
+                type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+              />
+              {/* <!-- Calendly inline widget end --> */}
               <div
                 style={{
                   backgroundColor: `black`,

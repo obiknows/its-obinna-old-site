@@ -7,4 +7,10 @@ thumbnail: ./img/health.jpg
 description: Let's talk health
 ---
 
-Remedies, remedies, lets talk about it and i'll put you on game
+Want to talk health? You rap? Got a YouTube channel?
+
+If you need some dope sounds and got an idea in mind, then hit my line.
+
+Schedule a call with me to talk about it and get we can assess what you need and get started.
+
+**LINK: https://calendly.com/itsobinna/15min**
