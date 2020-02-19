@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Cart from "./cart"
 import Footer from "./footer"
 
-// TODO: add in a cart from a cart component (from here --> https://www.frontendstumbles.com/gatsby-and-snipcart-ecommerce-tutorial/)
+// added in a cart from a cart component (from here --> https://www.frontendstumbles.com/gatsby-and-snipcart-ecommerce-tutorial/)
 const Layout = props => {
   const { title, children } = props
   const [toggleNav, setToggleNav] = React.useState(false)

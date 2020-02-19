@@ -92,7 +92,6 @@ class ProjectPageTemplate extends React.Component {
             </div>
 
             {/* Item Description */}
-            {/* TODO: fix the white background on markdown images */}
             <div style={{ marginTop: `5rem`, fontSize: 18 }}>
               <div dangerouslySetInnerHTML={{ __html: item.html }} />
             </div>

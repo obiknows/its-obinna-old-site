@@ -26,6 +26,9 @@ const SiteIndex = ({ data }, location) => {
   const BlogPosts = posts.filter(
     blogpost => blogpost.node.frontmatter.type === null
   )
+  const StoreItems = posts.filter(
+    storeitem => storeitem.node.frontmatter.type === "product"
+  )
 
   var projectCount = 0
   let ProjectsSectionContent = Projects.slice(0, 2).map(project => {
@@ -67,7 +70,7 @@ const SiteIndex = ({ data }, location) => {
           <div
             style={{
               textAlign: "center",
-              maxWidth: `350px`,
+              maxWidth: `450px`,
               marginLeft: `auto`,
               marginRight: `auto`,
             }}
@@ -95,7 +98,7 @@ const SiteIndex = ({ data }, location) => {
           <div
             style={{
               textAlign: "center",
-              maxWidth: `350px`,
+              maxWidth: `450px`,
               marginLeft: `auto`,
               marginRight: `auto`,
             }}
@@ -277,7 +280,27 @@ const SiteIndex = ({ data }, location) => {
       {/* <FeaturedBeat></FeaturedBeat> */}
 
       {/* FEATURED ITEM [`/store/{store_item_name}`] */}
-      {/* <FeaturedItem></FeaturedItem> */}
+      <FeaturedItem>
+        {/* SECTION HEADER */}
+        <SectionHeaderText style={{ textAlign: `center` }}>
+          FEATURED ITEM
+        </SectionHeaderText>
+
+        <Link to={StoreItems[0].node.fields.slug}>
+          <Img
+            style={{
+              maxWidth: `40rem`,
+              marginLeft: `auto`,
+              marginRight: `auto`,
+            }}
+            fluid={
+              StoreItems[0].node.frontmatter.thumbnail.childImageSharp.fluid
+            }
+          >
+            <div>{StoreItems[0].node.frontmatter.title}</div>
+          </Img>
+        </Link>
+      </FeaturedItem>
 
       {/* CODE CHART (chart from WakaTime) */}
       {/* <CodeChart></CodeChart> */}
@@ -330,6 +353,54 @@ const FeaturedPostSection = styled.div`
   padding-right: 20rem;
   margin-top: 10rem;
   margin-bottom: 10rem;
+
+  @media (max-width: 1050px) {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (max-width: 770px) {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+`
+const FeaturedItem = styled.div`
+  padding-left: 20rem;
+  padding-right: 20rem;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+
+  @media (max-width: 1050px) {
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (max-width: 770px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (max-width: 600px) {
+    padding-left: 0rem;
+    padding-right: 0rem;
+    margin-top: 5rem;
+    margin-bottom: 0rem;
+  }
 `
 const SectionHeaderText = styled.h2`
   margin-top: 1rem;
