@@ -58,8 +58,6 @@ I'm here to build with you. Just holla at me.
 
 ISE
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4pDwH-S0KoU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 <!-- <div class="kg-card kg-image-card kg-width-wide">
 
 ![Darkness](./BLACK_II_desktop-1.jpg)
