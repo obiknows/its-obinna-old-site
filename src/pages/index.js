@@ -22,7 +22,7 @@ const SiteIndex = ({ data }, location) => {
   const Projects = posts.filter(
     project => project.node.frontmatter.type === "project"
   )
-  // const ServiceItems = posts.filter(
+  // const Services = posts.filter(
   //   service => service.node.frontmatter.type === "service"
   // )
   // const BlogPosts = posts.filter(
@@ -334,28 +334,29 @@ const ProjectsSectionContentContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 4rem;
   grid-template-areas:
     "first second"
     "third fourth";
-  // grid-template-rows: auto;
-  // grid-column-gap: 4rem;
-  // grid-row-gap: 4rem;
   margin-bottom: 4rem;
   margin-top: 4rem;
   margin-right: 4rem;
   margin-left: 4rem;
 
   @media (max-width: 1050px) {
+    grid-column-gap: 3rem;
     margin-right: 1rem;
     margin-left: 1rem;
   }
 
   @media (max-width: 770px) {
+    grid-column-gap: 2rem;
     margin-right: 0.5rem;
     margin-left: 0.5rem;
   }
 
   @media (max-width: 600px) {
+    grid-column-gap: 1rem;
     margin-right: 0rem;
     margin-left: 0rem;
   }
