@@ -66,19 +66,19 @@ const Layout = props => {
             </div>
             <nav id="swup" className="site-head-middle">
               <ul className="nav" role="menu">
-                <li className="" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/blog/beats`}>Beats</Link>
                 </li>
-                <li className="nav-elements" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/blog/wealth`}>Wealth</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/blog/tech`}>Tech</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/blog/health`}>Health</Link>
                 </li>
-                <li className="nav-tags" role="menuitem">
+                <li className="nav-tags hidden" role="menuitem">
                   <Link to={`/blog/more`}>More</Link>
                 </li>
                 {/* <li className="nav-tags" role="menuitem">
