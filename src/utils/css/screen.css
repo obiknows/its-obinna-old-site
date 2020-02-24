@@ -65,13 +65,18 @@ body {
 @media (max-width: 425px) {
   .site-wrapper {
     /* padding: 6vw; */
+    margin-top: 0.5rem;
     padding: 5vw 6vw 6vw 6vw;
   }
   .site-head-center-container {
-    margin-top: 4px;
+    margin-top: 0.5rem;
   }
   .site-head-logo {
-    font-size: 1rem !important;
+    padding-top: 10px;
+    padding-right: 5px !important;
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: 1.25rem !important;
   }
   .site-head-logo-box {
     font-size: 1rem;
@@ -419,7 +424,7 @@ footer h4 {
   .site-head-container {
     flex-direction: column;
     justify-content: flex-start;
-    height: 40px;
+    height: 50px;
     background: rgba(255, 255, 255, 0);
     z-index: -1;
     transition: all 0.4s ease-out;

@@ -39,9 +39,9 @@ const CartSummary = styled.div`
   padding: 10px;
   font-weight: bold;
 
-  // @media (max-width: 425px) {
-  //   font-size: 1rem;
-  // }
+  @media (max-width: 425px) {
+    font-size: 1.25rem;
+  }
 `
 
 class Cart extends Component {

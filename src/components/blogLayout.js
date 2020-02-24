@@ -55,6 +55,7 @@ const Layout = props => {
                 {title}
               </Link>
               <div
+                className="site-head-logo-box"
                 style={{
                   backgroundColor: `#E4B123`,
                   color: `black`,
