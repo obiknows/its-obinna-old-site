@@ -69,7 +69,7 @@ body {
     padding: 0vw 6vw 6vw 6vw;
   }
   .site-head-center-container {
-    margin-top: 0.5rem;
+    margin-top: 1.2rem;
   }
   .site-head-logo {
     padding-top: 10px;
@@ -81,6 +81,8 @@ body {
   .site-head-logo-box {
     font-size: 1rem;
     margin-right: 1rem;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 

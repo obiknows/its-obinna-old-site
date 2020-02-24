@@ -45,6 +45,7 @@ const Layout = props => {
           </nav> */}
           <div className="site-head-center">
             <div
+              className="site-head-center-container"
               style={{
                 display: `flex`,
                 flexDirection: `row`,
