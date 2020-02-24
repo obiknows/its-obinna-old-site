@@ -65,8 +65,8 @@ body {
 @media (max-width: 425px) {
   .site-wrapper {
     /* padding: 6vw; */
-    margin-top: 0.5rem;
-    padding: 5vw 6vw 6vw 6vw;
+    margin-top: 1.5rem;
+    padding: 0vw 6vw 6vw 6vw;
   }
   .site-head-center-container {
     margin-top: 0.5rem;
@@ -80,6 +80,7 @@ body {
   }
   .site-head-logo-box {
     font-size: 1rem;
+    margin-right: 1rem;
   }
 }
 
