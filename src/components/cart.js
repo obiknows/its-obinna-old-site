@@ -14,7 +14,7 @@ const CartStyled = styled.div`
     margin: 2.5rem 0;
     
     @media (max-width: 850px) {
-        margin: 0px;
+      margin: 0px;
     }
 `
 
@@ -38,6 +38,10 @@ const CartSummary = styled.div`
   align-items: center;
   padding: 10px;
   font-weight: bold;
+
+  @media (max-width: 425px) {
+    font-size: 0.5rem;
+  }
 `
 
 class Cart extends Component {
@@ -77,9 +81,9 @@ class Cart extends Component {
   render() {
     return (
       <CartStyled>
-        <ShopName>
+        {/* <ShopName>
           <LinkStyled to="/">{this.props.shopName}</LinkStyled>
-        </ShopName>
+        </ShopName> */}
         <CartSummary className="snipcart-summary">
           <a href="#" className="snipcart-checkout">
             CART

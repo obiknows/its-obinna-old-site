@@ -54,10 +54,27 @@ body {
   padding: 3vw 3vw 3vw 3vw;
   min-height: 100vh;
 }
+/* TABLET */
 @media (max-width: 850px) {
   .site-wrapper {
     /* padding: 6vw; */
     padding: 3vw 6vw 6vw 6vw;
+  }
+}
+/* PHONES */
+@media (max-width: 425px) {
+  .site-wrapper {
+    /* padding: 6vw; */
+    padding: 5vw 6vw 6vw 6vw;
+  }
+  .site-head-center-container {
+    margin-top: 4px;
+  }
+  .site-head-logo {
+    font-size: 1rem !important;
+  }
+  .site-head-logo-box {
+    font-size: 1rem;
   }
 }
 

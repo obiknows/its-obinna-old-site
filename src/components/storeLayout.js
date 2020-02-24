@@ -47,6 +47,7 @@ const Layout = props => {
           </nav> */}
           <div className="site-head-center">
             <div
+              className="site-head-center-container"
               style={{
                 display: `flex`,
                 flexDirection: `row`,
@@ -57,6 +58,7 @@ const Layout = props => {
                 {title}
               </Link>
               <div
+                className="site-head-logo-box"
                 style={{
                   backgroundColor: `#D35151`,
                   color: `white`,
